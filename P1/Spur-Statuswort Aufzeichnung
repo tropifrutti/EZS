@@ -1,0 +1,138 @@
+
+
+ezs-Kowalc-F@bb1:/dev$ cat /dev/Carrera | hexdump -x
+0000000    8010    0000    1800    0000    8800    0000    6800    0000
+0000010    6800    0000    6410    0000    6410    0000    8000    0000
+0000020    8000    0000    8010    0000    1800    0000    1800    0000
+0000030    8800    0000    8800    0000    8810    0000    8810    0000
+0000040    6800    0000    6410    0000    1800    0000    1800    0000
+0000050    8800    0000    8810    0000    8810    0000    6800    0000
+0000060    6410    0000    8010    0000    1800    0000    8800    0000
+
+
+ezs-Kowalc-F@bb1:/dev$ cat /dev/Carrera | hexdump -x
+0000000    1800    0000    8800    0000    6800    0000    8000    0000
+0000010    8010    0000    8010    0000    1800    0000    1800    0000
+0000020    8800    0000    6800    0000    1800    0000    1800    0000
+0000030    8800    0000    8810    0000    8000    0000    1800    0000
+0000040    1800    0000    8800    0000    8800    0000    8810    0000
+0000050    6800    0000    6800    0000    6410    0000    8000    0000
+0000060    8010    0000    1800    0000    8800    0000    8810    0000
+0000070    6800    0000    6410    0000    8000    0000    8010    0000
+0000080    1800    0000    8800    0000    8800    0000    8810    0000
+0000090    6800    0000    6410    0000    6410    0000    8000    0000
+00000a0    8010    0000    8810    0000    8810    0000    6800    0000
+00000b0    6800    0000    6410    0000    6410    0000    8000    0000
+
+
+ezs-Kowalc-F@bb2:~$ ./race 0xA0 2
+new speed: 0xa0
+old/act: 0x1000/0x1000	000021 [ms] - Round: 1 - 0 [mm]
+v=0,1009
+old/act: 0x1000/0x8000	001066 [ms] - Kurve: length=1076
+old/act: 0x8000/0x8000	000021 [ms] - v=0,1024
+old/act: 0x8000/0x8010	000773 [ms] - Kurve: length=791
+old/act: 0x8010/0x8010	000021 [ms] - v=0,1016
+old/act: 0x8010/0x6000	000788 [ms] - Brueckenanfang: length=801
+old/act: 0x6000/0x6000	000022 [ms] - v=0,984
+old/act: 0x6000/0x6c10	001411 [ms] - Brueckenende: length=1388
+old/act: 0x6c10/0x6c10	000017 [ms] - v=0,1272
+old/act: 0x6c10/0x8800	000269 [ms] - Kurve: length=343
+old/act: 0x8800/0x8800	000021 [ms] - v=0,1027
+old/act: 0x8800/0x8810	000793 [ms] - Kurve: length=815
+old/act: 0x8810/0x8810	000021 [ms] - v=0,1026
+old/act: 0x8810/0x1000	001158 [ms] - Start/Ziel: length=1189
+old/act: 0x1000/0x1000	000021 [ms] - Round: 2 - 6403 [mm]
+v=0,1011
+0x8000 - 1076 [mm]
+0x8010 - 791 [mm]
+0x6000 - 801 [mm]
+0x6c10 - 1388 [mm]
+0x8800 - 343 [mm]
+0x8810 - 815 [mm]
+0x1000 - 1189 [mm]
+sum: 6403
+0x8000 (expected 0x8000)
+0x8010 (expected 0x8010)
+0x6000 (expected 0x6000)
+0x6c10 (expected 0x6c10)
+0x8800 (expected 0x8800)
+0x8810 (expected 0x8810)
+0x1000 (expected 0x1000)
+
+---> Runde: 1 - Zeit: 6.294s (Beste: 6.294s, Mean: 6.294s)
+0x8000 (expected 0x8000)
+0x8010 (expected 0x8010)
+0x6000 (expected 0x6000)
+0x6c10 (expected 0x6c10)
+0x8800 (expected 0x8800)
+0x8810 (expected 0x8810)
+0x1000 (expected 0x1000)
+
+---> Runde: 2 - Zeit: 6.246s (Beste: 6.246s, Mean: 6.270s)
+new speed: 0x0
+
+
+
+
+
+##############################
+mit wrong position
+##############################
+
+ezs-Kowalc-F@bb2:~$ ./race 0xA0 6
+new speed: 0xa0
+old/act: 0x1000/0x1000	000020 [ms] - Round: 1 - 0 [mm]
+v=0,1060
+old/act: 0x1000/0x8000	000983 [ms] - Kurve: length=1042
+old/act: 0x8000/0x8000	000019 [ms] - v=0,1128
+old/act: 0x8000/0x8010	000739 [ms] - Kurve: length=834
+old/act: 0x8010/0x8010	000022 [ms] - v=0,989
+old/act: 0x8010/0x6000	000781 [ms] - Brueckenanfang: length=772
+old/act: 0x6000/0x6000	000022 [ms] - v=0,987
+old/act: 0x6000/0x6c10	001273 [ms] - Brueckenende: length=1257
+old/act: 0x6c10/0x6c10	000016 [ms] - v=0,1324
+old/act: 0x6c10/0x8800	000266 [ms] - Kurve: length=352
+old/act: 0x8800/0x8800	000021 [ms] - v=0,1045
+old/act: 0x8800/0x8810	000776 [ms] - Kurve: length=811
+old/act: 0x8810/0x8810	000021 [ms] - v=0,1017
+old/act: 0x8810/0x1000	001122 [ms] - Start/Ziel: length=1141
+old/act: 0x1000/0x1000	000020 [ms] - Round: 2 - 6209 [mm]
+v=0,1072
+0x8000 - 1042 [mm]
+0x8010 - 834 [mm]
+0x6000 - 772 [mm]
+0x6c10 - 1257 [mm]
+0x8800 - 352 [mm]
+0x8810 - 811 [mm]
+0x1000 - 1141 [mm]
+sum: 6209
+0x6c10 (expected 0x8000)
+wrong position 0x6c10 (0x8000)
+0x8800 (expected 0x8010)
+wrong position 0x8800 (0x8010)
+0x8810 (expected 0x6000)
+wrong position 0x8810 (0x6000)
+0x1000 (expected 0x6c10)
+wrong position 0x1000 (0x6c10)
+
+---> Runde: 1 - Zeit: 7.841s (Beste: 7.841s, Mean: 7.841s)
+0x8000 (expected 0x8800)
+wrong position 0x8000 (0x8800)
+0x8010 (expected 0x8810)
+wrong position 0x8010 (0x8810)
+0x6000 (expected 0x1000)
+wrong position 0x6000 (0x1000)
+0x6c10 (expected 0x8000)
+wrong position 0x6c10 (0x8000)
+0x8800 (expected 0x8010)
+wrong position 0x8800 (0x8010)
+0x8810 (expected 0x6000)
+wrong position 0x8810 (0x6000)
+0x1000 (expected 0x6c10)
+wrong position 0x1000 (0x6c10)
+
+---> Runde: 2 - Zeit: 6.081s (Beste: 6.081s, Mean: 6.961s)
+
+
+
