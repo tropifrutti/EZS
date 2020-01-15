@@ -1,6 +1,9 @@
 ### Aufgabe 1
 
-Ja, warum eigentlich?
+Es reicht nicht die Geschwindigkeit anzupassen, wenn der Sensor
+durchfahren wird, denn dann ist es möglicherweise schon zu spät. Hier
+ist es möglich schon vor einer Kurve, also dem Eintritt des Ereignisses,
+abzubremsen. Außerdem ist es so möglich vorher stärker zu beschleunigen.
 
 ### Aufgabe 2
 
