@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-03" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="bolle" created="2020-01-15" changedby="bolle" changed="2020-01-15" origin="Structorizer 3.30-03" text="&#34;Gegnerthread (erweitert)&#34;" comment="&#34;&#34;" color="ffffff" type="sub" style="nice">
+	<children>
+		<instruction text="&#34;Gegnerposition = Listenanfang;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;lese alter Typ;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;aktueller Typ = 0;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;while (1)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+			<qWhile>
+				<repeat text="&#34;until (alter Typ == aktueller Typ) || Auslenkung&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qRepeat>
+						<instruction text="&#34;sleep();&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<instruction text="&#34;lies aktueller Typ;&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qRepeat>
+				</repeat>
+				<instruction text="&#34;alter Typ = aktueller Typ;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;Segment-Eintrittszeit nehmen;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<while text="&#34;while (Gegnerposition-&#62;type != aktueller Typ)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qWhile>
+						<instruction text="&#34;Gegnerposition := Gegnerposition-&#62;next;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qWhile>
+				</while>
+			</qWhile>
+		</while>
+	</children>
+</root>
